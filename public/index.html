@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoffeeHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="profile-card">
+        <img id="company-logo" class="avatar" src="img/CoffeHouse.png" alt="Logo CoffeeHouse" />
+        <h1 id="company-name">CoffeeHouse</h1>
+
+        <div class="stats">
+          <div>
+            <strong id="total-activities">0</strong>
+            <span>Pedidos</span>
+          </div>
+          <div>
+            <strong id="total-co2">R$ 0,00</strong>
+            <span>total</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="activity-tab" class="activity-tab"> Meus pedidos</button>
+
+      <footer class="sidebar-footer">
+        <h2>CoffeeHouse</h2>
+        <div class="socials">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <span class="social-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4.5"></circle>
+                <circle cx="17.5" cy="6.5" r="1.2"></circle>
+              </svg>
+            </span>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <span class="social-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false">
+                <path
+                  d="M21 6.5c-.6.3-1.3.4-2 .5.7-.4 1.2-1 1.5-1.8-.7.4-1.4.7-2.2.8a3.5 3.5 0 0 0-6 3.2A10 10 0 0 1 5 5.8a3.5 3.5 0 0 0 1.1 4.7c-.5 0-1-.2-1.5-.4v.1a3.5 3.5 0 0 0 2.8 3.4c-.4.1-.9.1-1.3 0a3.5 3.5 0 0 0 3.3 2.4A7 7 0 0 1 4 17.3a10 10 0 0 0 5.4 1.6c6.5 0 10.1-5.5 10.1-10.2v-.5c.7-.5 1.2-1 1.5-1.7Z">
+                </path>
+              </svg>
+            </span>
+            <span>Twitter</span>
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok">
+            <span class="social-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false">
+                <path
+                  d="M14.6 4.2v8a3.6 3.6 0 1 1-3.5-3.6h.5v2.6h-.5a1 1 0 1 0 1 1V3h2.5c.4 1.7 1.8 3 3.5 3.2v2.4a6 6 0 0 1-3.5-1.4Z">
+                </path>
+              </svg>
+            </span>
+            <span>TikTok</span>
+          </a>
+        </div>
+        <small>Copyright-2024</small>
+      </footer>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <button id="auth-btn" class="btn-dark">Login</button>
+      </header>
+
+      <nav class="filters" id="filters">
+        <button data-type="cafe">☕ Café</button>
+        <button data-type="lanches">🥐 Lanches</button>
+        <button data-type="sobremesas">🍰 Sobremesas</button>
+      </nav>
+
+      <section id="activities-list" class="activities"></section>
+
+      <div id="pagination" class="pagination"></div>
+    </main>
+  </div>
+
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3>Login</h3>
+        <button id="close-modal">✕</button>
+      </div>
+      <label for="login-email">Email</label>
+      <input id="login-email" type="email" placeholder="Digite seu email" />
+      <label for="login-password">Senha</label>
+      <input id="login-password" type="password" placeholder="Digite sua senha" />
+      <small id="login-error" class="error"></small>
+      <div class="modal-actions">
+        <button id="submit-login" class="btn-dark">Entrar</button>
+        <button id="cancel-login">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <template id="activity-card-template">
+    <article class="activity-card">
+      <div class="activity-header">
+        <h3 class="activity-title">
+          <span class="product-icon">☕</span>
+          <span class="product-name"></span>
+        </h3>
+      </div>
+      <div class="activity-body">
+        <div class="metrics-info">
+          <p>Quantidade: <strong class="quantity">1</strong> | Tempo: <strong class="time">5 min</strong> | Preço:
+            <strong class="price">R$ 12,00</strong></p>
+        </div>
+        <div class="actions">
+          <button class="like-btn"><span></span> Favoritar</button>
+          <button class="comment-btn"><span></span> Avaliar</button>
+          <button class="order-btn"><span></span> Pedir</button>
+        </div>
+        <div class="social-stats">
+          <span class="likes-count">0</span> curtidas | <span class="comments-count">0</span> comentários
+        </div>
+      </div>
+
+      <div class="comment-box hidden">
+        <input class="comment-input" placeholder="Escrever um comentário..." />
+        <button class="send-comment">Enviar</button>
+        <small class="comment-error error"></small>
+      </div>
+    </article>
+  </template>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>

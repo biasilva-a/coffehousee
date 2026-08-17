@@ -1,0 +1,4 @@
+id,nome,email,senha,foto_url
+1,Usuário_01,usuario01@ecomove.com,123456,https://api.dicebear.com/9.x/adventurer/svg?seed=usuario01
+2,Usuário_02,usuario02@ecomove.com,123456,https://api.dicebear.com/9.x/adventurer/svg?seed=usuario02
+3,Usuário_03,usuario03@ecomove.com,123456,https://api.dicebear.com/9.x/adventurer/svg?seed=usuario03
